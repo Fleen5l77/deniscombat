@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #f8f8f8;
+        color: #fff;
+    }
+    #cookie {
+        width: 0px;
+        height: 0px;
+        background-size: cover;
+        border: none;
+        cursor: pointer;
+        margin: 0px;
+        border-radius: 0px;
+    }
+    #score {
+        font-size: 2em;
+        margin: 20px;
+    }
+    #shop {
+        margin-top: 20px;
+    }
+    .shop-item {
+        display: flex;
+    justify-content: space-between;
+    width: 300px;
+    margin: 10px auto;
+    padding: 10px;
+    border: 1px solid #191919;
+    background-color: #201717c4;
+    border-radius: 23px;
+    }
+    .shop-item button {
+        padding: 10px;
+        border: 1px solid #191919;
+    background-color: #dd7f04c4;
+    border-radius: 23px;
+
+    }
+    #achievements {
+        margin-top: 20px;
+    }
+    .achievement {
+        margin: 10px 0;
+    }
+    #achievement-popup {
+        position: fixed;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #ffeb3b;
+        padding: 10px;
+        border: 1px solid #ccc;
+        display: none;
+    }
+    .shop-item1 {
+        width: 0;
+    height: 0;
+    position: fixed;
+    top: -10;
+    left: -224px;
+    }
+    .bottomPanel {
+        color: #fff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 60px;
+    position: fixed;
+    bottom: 8px;
+    width: 96%;
+    border: 1px solid #191919;
+    background-color: #201717c4;
+    border-radius: 22px;
+
+}
+.bottomPanel button {
+        padding: 10px;
+        border: 1px solid #191919;
+    background-color: #dd7f04c4;
+    border-radius: 23px;
+}
+</style>
+</head>
+<body style="background-image: url('bg.png');">
+    <h1 style="color: #fff;">Denis Kombat</h1>
+    <div id="achievement-popup">Достижение!</div>
+<img id="cookie" src="coin.png">
+<div id="score">0</div>
+<div id="shop">
+    <div class="shop-item">
+        <span>Multitap (+1 dencoin за раз) (Уровень <span id="click-level">0</span>)</span>
+        <button id="upgrade-click">10 dencoin</button>
+    </div>
+    <div class="shop-item">
+        <span>Auto Clicker (+1 dencoin в секунду) (Уровень <span id="auto-clicker-level">0</span>)</span>
+        <button id="auto-clicker">100 dencoin</button>
+    </div>
+    <div class="shop-item1" id="auto-clicker-upgrade-item" style="display:none;">
+        <span>Upgrade Auto Clicker Speed (Level <span id="auto-clicker-speed-level">0</span>)</span>
+        <button id="upgrade-auto-clicker">20 dencoin</button>
+    </div>
+</div>
+<div id="achievements">
+    <div id="achievement-list"></div>
+</div>
+<div class="bottomPanel">
+    <button onclick="redirectToPage1()">ㅤㅤДомㅤㅤ</button>
+    <button onclick="redirectToPage2()">ㅤПрокачкаㅤ</button>
+    <button onclick="redirectToPage3()">ㅤОб игреㅤ</button>
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>

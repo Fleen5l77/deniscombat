@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JOPA</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #f8f8f8;
+        color: #fff;
+    }
+
+ #cookie {
+        width: 294px;
+        height: 294px;
+        background-size: cover;
+        border: none;
+        cursor: pointer;
+        margin: 20px;
+        border-radius: 180px;
+    }
+    .tapped {
+        transform: scale(0.96);
+}
+    #score {
+        font-size: 2em;
+        margin: 20px;
+    }
+    #shop {
+        margin-top: 20px;
+    }
+    .shop-item {
+        display: none;
+        justify-content: space-between;
+        width: 300px;
+        margin: 10px auto;
+        padding: 10px;
+        border: 1px solid #ccc;
+        background-color: #fff;
+    }
+    .shop-item button {
+        padding: 10px;
+    }
+    #achievements {
+        margin-top: 20px;
+    }
+    .achievement {
+        margin: 10px 0;
+    }
+    #achievement-popup {
+        position: fixed;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #ffeb3b;
+        padding: 10px;
+        border: 1px solid #ccc;
+        display: none;
+    }
+    .bottomPanel {
+        color: #fff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 60px;
+    position: fixed;
+    bottom: 8px;
+    width: 96%;
+    border: 1px solid #191919;
+    background-color: #201717c4;
+    border-radius: 22px;
+
+}
+.bottomPanel button {
+        padding: 10px;
+        border: 1px solid #191919;
+    background-color: #dd7f04c4;
+    border-radius: 23px;
+}
+
+</style>
+</head>
+<body style="background-image: url('bg.png');">
+<h1 style="color: #fff;">Denis Kombat</h1>
+<div id="achievement-popup">Достижение!</div>
+<img id="cookie" src="coin.png">
+<div id="score">0</div>
+<div id="shop">
+    <div class="shop-item">
+        <span>Upgrade Click (+1 per click) (Level <span id="click-level">0</span>)</span>
+        <button id="upgrade-click">Cost: 10 cookies</button>
+    </div>
+    <div class="shop-item">
+        <span>Auto Clicker (+1 per second) (Level <span id="auto-clicker-level">0</span>)</span>
+        <button id="auto-clicker">Cost: 100 cookies</button>
+    </div>
+    <div class="shop-item" id="auto-clicker-upgrade-item" style="display:none;">
+        <span>Upgrade Auto Clicker Speed (Level <span id="auto-clicker-speed-level">0</span>)</span>
+        <button id="upgrade-auto-clicker">Cost: 20 cookies</button>
+    </div>
+</div>
+<div id="achievements">
+    <h2>Достижения</h2>
+    <div id="achievement-list"></div>
+</div>
+<div class="bottomPanel">
+    <button onclick="redirectToPage1()">ㅤㅤДомㅤㅤ</button>
+    <button onclick="redirectToPage2()">ㅤПрокачкаㅤ</button>
+    <button onclick="redirectToPage3()">ㅤОб игреㅤ</button>
+  </div>
+
+<script src="script.js"></script>
+<script src="bg.js"></script>
+</body>
+</html>

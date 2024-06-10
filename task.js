@@ -17,9 +17,7 @@ if (localStorage.getItem('task1_state') === '1') {
         
         // Сохранить новый баланс игрока в Local Storage
         localStorage.setItem('cookies', newbalance);
-        
-        // Перенаправить игрока на видео на YouTube
-
+        window.location.href = 'https://t.me/DenisCombat';
     }
 
     // Проверить, существует ли элемент 'task1' перед добавлением обработчика события

@@ -118,22 +118,6 @@
     <h1 style="color: #fff;">Denis Combat</h1>
     <div id="achievement-popup">Достижение!</div>
 <img id="cookie" src="coin.png">
-<div id="score">0</div>
-<div id="shop">
-    <h4 style="    margin: 1px;">ㅤПрокачкаㅤ</h4>
-    <div class="shop-item">
-        <span>Multitap (+1 dencoin за раз) (Уровень <span id="click-level">0</span>)</span>
-        <button id="upgrade-click">10 dencoin</button>
-    </div>
-    <div class="shop-item">
-        <span>Auto Clicker (+1 dencoin в секунду) (Уровень <span id="auto-clicker-level">0</span>)</span>
-        <button id="auto-clicker">100 dencoin</button>
-    </div>
-    <div class="shop-item1" id="auto-clicker-upgrade-item" style="display:none;">
-        <span>Upgrade Auto Clicker Speed (Level <span id="auto-clicker-speed-level">0</span>)</span>
-        <button id="upgrade-auto-clicker">20 dencoin</button>
-    </div>
-</div>
 <div class="tasks">
     <h4 style="    margin: 1px;">Задания</h4>
     <div class="tasks-item">
@@ -150,7 +134,23 @@
     <button onclick="redirectToPage3()">Задания</button>
     <button onclick="redirectToPage4()">Об игре</button>
   </div>
-
-<script src="script.js"></script>
+  <script>
+    function redirectToPage1() {
+        window.location.href = 'index.html';
+      }
+      
+      function redirectToPage2() {
+        window.location.href = 'upgrade.html';
+      }
+    
+      function redirectToPage3() {
+        window.location.href = 'task.html';
+      }
+    
+      function redirectToPage4() {
+        window.location.href = 'about.html';
+      }
+    
+</script>
 </body>
 </html>

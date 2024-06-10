@@ -157,8 +157,12 @@ function redirectToPage1() {
   function redirectToPage2() {
     window.location.href = 'upgrade.html';
   }
-  
+
   function redirectToPage3() {
+    window.location.href = 'task.html';
+  }
+
+  function redirectToPage4() {
     window.location.href = 'about.html';
   }
 

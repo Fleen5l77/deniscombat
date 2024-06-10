@@ -13,8 +13,11 @@ let achievements = JSON.parse(localStorage.getItem('achievements')) || [];
 const achievementThresholds = [
     { threshold: 100, name: 'Чипсы lays' },
     { threshold: 10000, name: 'Мастер жира' },
-    { threshold: 1000000, name: 'Бог чипсов' },
-    { threshold: 100000000, name: 'Сигма Денис' },
+    { threshold: 50000, name: 'Бог чипсов' },
+    { threshold: 100000, name: 'DenCoin Master' },
+    { threshold: 300000, name: 'DenCoin Combat' },
+    { threshold: 500000, name: 'Сигма Денис' },
+    { threshold: 500000, name: '1M' },
     // Add more achievements as needed
 ];
 

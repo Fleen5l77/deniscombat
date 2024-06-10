@@ -1,34 +1,49 @@
-// Получаем текущий баланс из localStorage
-let currentBalance = parseInt(localStorage.getItem('cookies')) || 0;
-let currentBackground = localStorage.getItem('background') || 'default.png';
+$(document).ready(function() {
+    let balance = parseInt(localStorage.getItem('cookie')) || 0;
+  
+    const bgPrices = {
+        bg1: 10,
+        bg2: 20
+    };
+  
+    const coinPrices = {
+        coin1: 5,
+        coin2: 10
+    };
+  
+    buyCoin(coin)
 
-// Объект с информацией о фонах и их стоимости
-const backgrounds = {
-  "bg.png": 1000,
-  "bg2.png": 200,
-  "bg3.png": 300
-};
-
-// Функция для смены фона
-function changeBackground(backgroundUrl) {
-  document.body.style.backgroundImage = url('${backgroundUrl}');
-  localStorage.setItem('background', backgroundUrl);
-}
-
-// Функция для покупки фона
-function buyBackground(backgroundUrl) {
-  if (currentBalance >= backgrounds[backgroundUrl]) {
-    currentBalance -= backgrounds[backgroundUrl];
-    localStorage.setItem('cookies', currentBalance);
-    changeBackground(backgroundUrl);
-  } else {
-    alert("Недостаточно средств для покупки фона");
-  }
-}
-
-// Загрузка текущего фона при загрузке страницы
-window.onload = function() {
-  changeBackground(currentBackground);
-};
-
-// Пример вызова функции для покупки фона
+    function buyBackground(bg) {
+        if (balance >= bgPrices[bg]) {
+            balance -= bgPrices[bg];
+            localStorage.setItem('cookie', balance);
+            console.log(`Вы купили фон ${bg}.`);
+        } else {
+            console.log('Недостаточно средств для покупки фона.');
+        }
+    }
+  
+    function buyCoin(coin) {
+        if (balance >= coinPrices[coin]) {
+            balance -= coinPrices[coin];
+            localStorage.setItem('cookie', balance);
+            localStorage.setItem('customCoin', coin);
+            applyCustomCoin();
+            console.log(`Вы купили монету ${coin}.`);
+        } else {
+            console.log('Недостаточно средств для покупки монеты.');
+        }
+    }
+  
+    function applyCustomCoin() {
+        let customCoin = localStorage.getItem('customCoin');
+        if (customCoin) {
+            // Здесь должен быть код для применения кастомной монеты
+            document.body.style.backgroundImage = "url(" + selectedBackground + ")";
+            console.log(`Применена кастомная монета ${customCoin}.`);
+        }
+    }
+  
+    applyCustomCoin(); // Применяем кастомную монету после загрузки страницы
+  
+  });

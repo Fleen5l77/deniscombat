@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+     <!-- СКРИТЫ -->
+    <script src="jquery.js"></script>
+    <script src="task.js"></script>
+     <!-- СТИЛИ -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <!-- СТИЛИ -->
 <style>
     body {
         font-family: Arial, sans-serif;
@@ -12,12 +17,13 @@
     }
     #cookie {
         width: 0px;
-        height: 0px;
-        background-size: cover;
-        border: none;
-        cursor: pointer;
-        margin: 0px;
-        border-radius: 0px;
+    height: 0px;
+    background-size: cover;
+    border: none;
+    cursor: pointer;
+    margin: 0px;
+    border-radius: 0px;
+    position: fixed;
     }
     #score {
         font-size: 2em;
@@ -86,6 +92,26 @@
     background-color: #dd7f04c4;
     border-radius: 23px;
 }
+.tasks {
+        margin-top: 20px;
+    }
+    .tasks-item {
+        display: flex;
+    justify-content: space-between;
+    width: 300px;
+    margin: 10px auto;
+    padding: 10px;
+    border: 1px solid #191919;
+    background-color: #201717c4;
+    border-radius: 23px;
+    }
+    .tasks-item button {
+        padding: 10px;
+        border: 1px solid #191919;
+    background-color: #dd7f04c4;
+    border-radius: 23px;
+
+    }
 </style>
 </head>
 <body style="background-image: url('bg.png');">
@@ -94,6 +120,7 @@
 <img id="cookie" src="coin.png">
 <div id="score">0</div>
 <div id="shop">
+    <h4 style="    margin: 1px;">ㅤПрокачкаㅤ</h4>
     <div class="shop-item">
         <span>Multitap (+1 dencoin за раз) (Уровень <span id="click-level">0</span>)</span>
         <button id="upgrade-click">10 dencoin</button>
@@ -105,6 +132,13 @@
     <div class="shop-item1" id="auto-clicker-upgrade-item" style="display:none;">
         <span>Upgrade Auto Clicker Speed (Level <span id="auto-clicker-speed-level">0</span>)</span>
         <button id="upgrade-auto-clicker">20 dencoin</button>
+    </div>
+</div>
+<div class="tasks">
+    <h4 style="    margin: 1px;">Задания</h4>
+    <div class="tasks-item">
+        <span>Подпишись на наш Telegram</span>
+        <button onclick="task1()">2000 dencoin</button>
     </div>
 </div>
 <div id="achievements">

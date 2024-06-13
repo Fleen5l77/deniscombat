@@ -46,7 +46,7 @@ if (localStorage.getItem('task2_state') === '1') {
         
         // Сохранить новый баланс игрока в Local Storage
         localStorage.setItem('cookies', newbalance1);
-        window.location.href = 'https://t.me/hamibin';
+        window.location.href = 'https://t.me/slash_telegram';
     }
 
     // Проверить, существует ли элемент 'task1' перед добавлением обработчика события

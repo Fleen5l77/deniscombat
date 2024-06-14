@@ -6,7 +6,15 @@ document.addEventListener("DOMContentLoaded", function() {
     function adaptiveimg(balance) {
         var newimg;
         
-        if (balance >= 1000000) {
+        if (balance >= 60000000) {
+            newimg = 'coin10.png'; // Путь к изображению для баланса 60 000 000 и выше
+        } else if (balance >= 60000000) {
+            newimg = 'coin9.png'; // Путь к изображению для баланса 40 00 000 и выше
+        } else if (balance >= 40000000) {
+            newimg = 'coin8.png'; // Путь к изображению для баланса 25 00 000 и выше
+        } else if (balance >= 25000000) {
+            newimg = 'coin7.png'; // Путь к изображению для баланса 10 00 000 и выше
+        } else if (balance >= 1000000) {
             newimg = 'coin6.png'; // Путь к изображению для баланса 1 000 000 и выше
         } else if (balance >= 500000) {
             newimg = 'coin5.png'; // Путь к изображению для баланса 500 000 и выше

@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-     <!-- СКРИТЫ -->
-    <script src="jquery.js"></script>
-     <!-- СТИЛИ -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <!-- СТИЛИ -->
+<title>JOPA</title>
 <style>
     body {
         font-family: Arial, sans-serif;
@@ -112,57 +109,55 @@
     border-radius: 23px;
 
     }
+    .tasks-item input {
+        border: 1px solid #972cce;
+    background-color: #201717c4;
+    border-radius: 23px;
+    color: #fff;
+    }
 </style>
 </head>
 <body style="background-image: url('bg.png');">
     <h1 style="color: #fff;">Denis Combat</h1>
     <div id="achievement-popup">Достижение!</div>
 <img id="cookie" src="coin.png">
+<p style="    font-size: 2em; margin: 20px; display: none;"><span id="balance">0</span> Dencoin</p>
 <div class="tasks">
-    <h4 style="    margin: 1px;">Задания</h4>
+    <h4 style="  font-size: 1.3em; margin: 20px;  margin: 1px;">Промо-коды</h4>
     <div class="tasks-item">
-        <span>Подпишись на наш Telegram</span>
-        <button id="task1btn" onclick="task1()">2000 dencoin</button>
+        <input type="text" id="promoInput" placeholder="  Введите промо-код:">
+        <button onclick="applyPromoCode()">Применить</button>
     </div>
-    <div class="tasks-item">
-        <span>Спасибо slash❤️</span>
-        <button id="task2btn" onclick="task2()">2000 dencoin</button>
-    </div>
-    <div class="tasks-item">
-        <span>Ввести промо-код</span>
-        <button onclick="promopage()">Открыть</button>
-    </div>
-</div>
-<div id="achievements">
-    <div id="achievement-list"></div>
-</div>
+
+<script src="script.js"></script>
+
 <div class="bottomPanel">
     <button onclick="redirectToPage1()">ㅤДомㅤ</button>
     <button onclick="redirectToPage2()">Прокачка</button>
-    <button onclick="redirectToPage3()">Задания</button>
-    <button onclick="redirectToPage4()">Об игре</button>
+    <button onclick="redirectToPage4()">Задания</button>
+    <button onclick="redirectToPage5()">Об игре</button>
   </div>
+
+
   <script>
     function redirectToPage1() {
-        window.location.href = 'index.html';
+        window.location.href = '../index.html';
       }
       
       function redirectToPage2() {
-        window.location.href = 'upgrade.html';
-      }
-    
-      function redirectToPage3() {
-        window.location.href = 'task.html';
+        window.location.href = '../upgrade.html';
       }
     
       function redirectToPage4() {
-        window.location.href = 'about.html';
+        window.location.href = '../task.html';
       }
-      function promopage() {
-        window.location.href = 'promo/index.html';
+    
+      function redirectToPage5() {
+        window.location.href = '../about.html';
       }
     
 </script>
-<script src="task.js"></script>
 </body>
 </html>
+
+

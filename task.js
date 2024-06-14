@@ -1,7 +1,12 @@
 // Проверить, было ли задание уже выполнено
 if (localStorage.getItem('task1_state') === '1') {
     // Задание уже выполнено, выйти из функции
-    console.log('Задание уже выполнено!');
+    var task1btn = document.getElementById("task1btn");
+if (task1btn) {
+    task1btn.innerHTML = "Задание выполнено!";
+} else {
+    console.error("Элемент с id 'task1btn' не найден на странице.");
+}
 } else {
     // Задание еще не выполнено, продолжить выполнение задания
     function task1() {
@@ -30,7 +35,12 @@ if (localStorage.getItem('task1_state') === '1') {
 // Проверить, было ли задание уже выполнено
 if (localStorage.getItem('task2_state') === '1') {
     // Задание уже выполнено, выйти из функции
-    console.log('Задание уже выполнено!');
+    var task2btn = document.getElementById("task2btn");
+if (task2btn) {
+    task2btn.innerHTML = "Задание выполнено!";
+} else {
+    console.error("Элемент с id 'task1btn' не найден на странице.");
+}
 } else {
     // Задание еще не выполнено, продолжить выполнение задания
     function task2() {

@@ -26,9 +26,7 @@ const promoCodes = {
       activatedCodes[promoCode] = true;
       localStorage.setItem("activatedCodes", JSON.stringify(activatedCodes)); // Сохраняем информацию о активированном промо-коде
   
-      alert(`Congratulations! You've received ${additionalCoins} coins.`);
       input.value = ""; // Очищаем поле ввода
     } else {
-      alert("Invalid promo code");
     }
   }  

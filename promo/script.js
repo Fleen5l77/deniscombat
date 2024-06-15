@@ -3,8 +3,8 @@ const promoCodes = {
     "SLASH": 3000,
     "DENIS": 1000,
     "FUN": 1000,
-    "MIFIX": 2000
-
+    "MIFIX": 2000,
+    "COFFEE": 5000
   };
 
   function applyPromoCode() {

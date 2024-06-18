@@ -5,7 +5,7 @@ const promoCodes = {
     "FUN": 1000,
     "MIFIX": 2000,
     "COFFEE": 5000,
-    "D0JND86": 200000
+    "DSI58DN": 400000
   };
 
   function applyPromoCode() {

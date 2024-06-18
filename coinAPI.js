@@ -40,18 +40,19 @@ function adaptiveCoin(balance) {
 
 function buyCoin(coinName) {
   const coins = {
-    'shop1.png': 5000,
-    'shop2.png': 15000,
-    'shop3.png': 25000,
-    'shop4.png': 30000,
-    'shop5.png': 40000,
-    'shop6.png': 100000,
+    'qshop1.png': 5000,
+    'qshop2.png': 15000,
+    'qshop3.png': 25000,
+    'qshop4.png': 30000,
+    'qshop5.png': 40000,
+    'qshop6.png': 100000,
   };
 
   let balance = parseInt(localStorage.getItem('cookies')) || 0;
   let selectedCoin = localStorage.getItem('selectedCoin') || 'default';
 
   if (localStorage.getItem(coinName) === 'purchased') {
+    // Монета уже куплена
     selectedCoin = coinName;
     localStorage.setItem('selectedCoin', selectedCoin);
     updateGameCoinImage();
@@ -61,13 +62,23 @@ function buyCoin(coinName) {
   const coinPrice = coins[coinName];
 
   if (balance >= coinPrice) {
+    // Отнимаем стоимость монеты из баланса
     balance -= coinPrice;
-    localStorage.setItem('cookies', balance);
-    localStorage.setItem(coinName, 'purchased');
+    
+    // Сохраняем обновленный баланс
+    localStorage.setItem('cookies', balance); 
+
+    // Помечаем монету как купленную
+    localStorage.setItem(coinName, 'purchased'); 
+    
+    // Выбираем купленную монету
     selectedCoin = coinName;
     localStorage.setItem('selectedCoin', selectedCoin);
-    updateGameCoinImage();
+
+    // Обновляем изображение монеты в игре
+    updateGameCoinImage(); 
   } else {
+    alert('Недостаточно cookies!'); 
   }
 }
 

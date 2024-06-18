@@ -145,25 +145,25 @@
     <h1 style="color: #fff;">Магазин</h1>
     <div id="achievement-popup">Достижение!</div>
 <img id="cookie" src="coin.png">
-<div id="score">0</div>
+<div id="score"></div>
 <div class="shopqcont">
  <div class="shopq">
-    <img class="imgshop" src="shop1.png" alt="5000 Dencoin" onclick="buyCoin('shop1.png')">
+    <img class="imgshop" src="qshop1.png" alt="5000 Dencoin" onclick="buyCoin('qshop1.png')">
     <p>5000 Dencoin</p>
 </div> <div class="shopq">
-    <img class="imgshop" src="shop2.png" alt="15000 Dencoin" onclick="buyCoin('shop2.png')">
+    <img class="imgshop" src="qshop2.png" alt="15000 Dencoin" onclick="buyCoin('qshop2.png')">
     <p>15000 Dencoin</p>
 </div><div class="shopq">
-    <img class="imgshop" src="shop3.png" alt="25000 Dencoin" onclick="buyCoin('shop3.png')">
+    <img class="imgshop" src="qshop3.png" alt="25000 Dencoin" onclick="buyCoin('qshop3.png')">
     <p>25000 Dencoin</p>
 </div><div class="shopq">
-    <img class="imgshop" src="shop4.png" alt="30000 Dencoin" onclick="buyCoin('shop4.png')" >
+    <img class="imgshop" src="qshop4.png" alt="30000 Dencoin" onclick="buyCoin('qshop4.png')" >
     <p>30000 Dencoin</p>
 </div><div class="shopq">
-    <img class="imgshop" src="shop5.png" alt="40000 Dencoin" onclick="buyCoin('shop5.png')">
+    <img class="imgshop" src="qshop5.png" alt="40000 Dencoin" onclick="buyCoin('qshop5.png')">
     <p>40000 Dencoin</p>
 </div><div class="shopq">
-    <img class="imgshop" src="shop6.png" alt="100000 Dencoin" onclick="buyCoin('shop6.png')">
+    <img class="imgshop" src="qshop6.png" alt="100000 Dencoin" onclick="buyCoin('qshop6.png')">
     <p>100000 Dencoin</p>
 </div class="shopq">
 </div>
@@ -210,6 +210,27 @@
 </div>
 
 <script src="coinAPI.js"></script>
-<script src="script.js"></script>
+<script>
+    function redirectToPage1() {
+    window.location.href = 'index.html';
+  }
+  
+  function redirectToPage2() {
+    window.location.href = 'upgrade.html';
+  }
+
+  function redirectToPage3() {
+    window.location.href = 'task.html';
+  }
+
+  function redirectToPage4() {
+    window.location.href = 'about.html';
+  }
+
+  function redirectToShop() {
+    window.location.href = 'shop.html';
+  }
+
+</script>
 </body>
 </html>

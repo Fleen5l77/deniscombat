@@ -16,9 +16,8 @@ const achievementThresholds = [
     { threshold: 50000, name: 'Бог чипсов' },
     { threshold: 100000, name: 'DenCoin Master' },
     { threshold: 300000, name: 'DenCoin Combat' },
-    { threshold: 500000, name: 'Сигма Денис' },
+    { threshold: 500000, name: 'Сигма Денис' }, 
     { threshold: 500000, name: '1M' },
-    // Add more achievements as needed
 ];
 
 const cookieButton = document.getElementById('cookie');
@@ -167,6 +166,10 @@ function redirectToPage1() {
 
   function redirectToPage4() {
     window.location.href = 'about.html';
+  }
+
+  function redirectToShop() {
+    window.location.href = 'shop.html';
   }
 
 updateScore();

@@ -29,8 +29,19 @@
         font-size: 2em;
         margin: 20px;
     }
-    #shop {
+    .shop {
         margin-top: 20px;
+    }
+    .imgshop {
+        width: 94px;
+        height: 94px;
+        background-size: cover;
+        border: none;
+        cursor: pointer;
+        margin: 0px;
+        transition: transform 0.3s;
+        border-radius: 180px;
+       -webkit-tap-highlight-color: transparent;
     }
     .shop-item {
         display: flex;
@@ -50,6 +61,17 @@
     border-radius: 23px;
 
     }
+    
+    .shopq {
+        width: 94px;
+        height: 150px;
+        border: none;
+        cursor: pointer;
+        margin: 5px;
+        transition: transform 0.3s;
+       -webkit-tap-highlight-color: transparent;
+    }
+
     #achievements {
         margin-top: 20px;
     }
@@ -65,6 +87,10 @@
         padding: 10px;
         border: 1px solid #ccc;
         display: none;
+    }
+    .shopqcont {
+        display: flex;
+        flex-wrap: wrap;
     }
     .shop-item1 {
         width: 0;
@@ -116,11 +142,50 @@
 </style>
 </head>
 <body style="background-image: url('bg.png');">
-    <h1 style="color: #fff;">Denis Combat</h1>
+    <h1 style="color: #fff;">Магазин</h1>
     <div id="achievement-popup">Достижение!</div>
 <img id="cookie" src="coin.png">
 <div id="score">0</div>
-<div id="shop">
+<div class="shopqcont">
+ <div class="shopq">
+    <img class="imgshop" src="shop1.png" alt="5000 Dencoin" onclick="buyCoin('shop1.png')">
+    <p>5000 Dencoin</p>
+</div> <div class="shopq">
+    <img class="imgshop" src="shop2.png" alt="15000 Dencoin" onclick="buyCoin('shop2.png')">
+    <p>15000 Dencoin</p>
+</div><div class="shopq">
+    <img class="imgshop" src="shop3.png" alt="25000 Dencoin" onclick="buyCoin('shop3.png')">
+    <p>25000 Dencoin</p>
+</div><div class="shopq">
+    <img class="imgshop" src="shop4.png" alt="30000 Dencoin" onclick="buyCoin('shop4.png')" >
+    <p>30000 Dencoin</p>
+</div><div class="shopq">
+    <img class="imgshop" src="shop5.png" alt="40000 Dencoin" onclick="buyCoin('shop5.png')">
+    <p>40000 Dencoin</p>
+</div><div class="shopq">
+    <img class="imgshop" src="shop6.png" alt="100000 Dencoin" onclick="buyCoin('shop6.png')">
+    <p>100000 Dencoin</p>
+</div class="shopq">
+</div>
+<div class="bottomPanel">
+    <button onclick="redirectToPage1()">ㅤДомㅤ</button>
+    <button onclick="redirectToPage2()">Прокачка</button>
+    <button onclick="redirectToPage3()">Задания</button>
+    <button onclick="redirectToPage4()">Об игре</button>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="shop" style="display: none;">
     <h4 style="    margin: 1px;">ㅤПрокачкаㅤ</h4>
     <div class="shop-item">
         <span>Multitap (+1 dencoin за раз) (Уровень <span id="click-level">0</span>)</span>
@@ -129,10 +194,6 @@
     <div class="shop-item">
         <span>Auto Clicker (+1 dencoin в секунду) (Уровень <span id="auto-clicker-level">0</span>)</span>
         <button id="auto-clicker">100 dencoin</button>
-    </div>
-    <div class="shop-item">
-        <span>Магазин</span>
-        <button onclick="redirectToShop()">Открыть</button>
     </div>
     <div class="shop-item">
         <span>Offline Auto Clicker (+1 dencoin в секунду 24/7) (Уровень <span id="off-auto-clicker-level">0</span>)</span>
@@ -144,17 +205,11 @@
         <span>Upgrade Auto Clicker Speed (Level <span id="auto-clicker-speed-level">0</span>)</span>
         <button id="upgrade-auto-clicker">20 dencoin</button>
     </div>
-</div>
 <div id="achievements">
     <div id="achievement-list"></div>
 </div>
-<div class="bottomPanel">
-    <button onclick="redirectToPage1()">ㅤДомㅤ</button>
-    <button onclick="redirectToPage2()">Прокачка</button>
-    <button onclick="redirectToPage3()">Задания</button>
-    <button onclick="redirectToPage4()">Об игре</button>
-  </div>
 
+<script src="coinAPI.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

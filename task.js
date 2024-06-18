@@ -97,3 +97,4 @@ if (task3btn) {
         document.getElementById('task3').addEventListener('click', выполнитьЗадание);
     }
 }
+

@@ -147,7 +147,10 @@
 <img id="cookie" src="coin.png">
 <div id="score"></div>
 <div class="shopqcont">
- <div class="shopq">
+    <div class="shopq">
+        <img class="imgshop" src="coin.png" alt="5000 Dencoin" onclick="defcoin()">
+        <p>В зависимости от баланса</p>
+    </div> <div class="shopq">
     <img class="imgshop" src="qshop1.png" alt="5000 Dencoin" onclick="buyCoin('qshop1.png')">
     <p>5000 Dencoin</p>
 </div> <div class="shopq">
@@ -163,10 +166,23 @@
     <img class="imgshop" src="qshop5.png" alt="40000 Dencoin" onclick="buyCoin('qshop5.png')">
     <p>40000 Dencoin</p>
 </div><div class="shopq">
+    <img class="imgshop" src="qshop9.png" alt="50000 Dencoin" onclick="buyCoin('qshop9.png')">
+    <p>50000 Dencoin</p>
+</div><div class="shopq">
     <img class="imgshop" src="qshop6.png" alt="100000 Dencoin" onclick="buyCoin('qshop6.png')">
     <p>100000 Dencoin</p>
-</div class="shopq">
+</div><div class="shopq">
+    <img class="imgshop" src="qshop8.png" alt="200000 Dencoin" onclick="buyCoin('qshop8.png')">
+    <p>200000 Dencoin</p>
+</div><div class="shopq">
+    <img class="imgshop" src="qshop7.png" alt="100000 Dencoin" onclick="buyCoin('qshop7.png')">
+    <p>100000000 Dencoin</p>
 </div>
+<script>
+function defcoin() {
+ localStorage.setItem('selectedCoin', 'default')
+}
+</script>
 <div class="bottomPanel">
     <button onclick="redirectToPage1()">ㅤДомㅤ</button>
     <button onclick="redirectToPage2()">Прокачка</button>

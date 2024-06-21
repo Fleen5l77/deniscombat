@@ -14,10 +14,12 @@ const achievementThresholds = [
     { threshold: 100, name: 'Чипсы lays' },
     { threshold: 10000, name: 'Мастер жира' },
     { threshold: 50000, name: 'Бог чипсов' },
-    { threshold: 100000, name: 'DenCoin Master' },
+    { threshold: 100000, name: 'Жировая складка' },
     { threshold: 300000, name: 'DenCoin Combat' },
-    { threshold: 500000, name: 'Сигма Денис' }, 
-    { threshold: 500000, name: '1M' },
+    { threshold: 500000, name: 'Денис бизнесмеН' }, 
+    { threshold: 1000000, name: '1M' },
+    { threshold: 3000000, name: 'Сын слеша' },
+    { threshold: 25000000, name: 'Съеденный хомяк' },
 ];
 
 const cookieButton = document.getElementById('cookie');

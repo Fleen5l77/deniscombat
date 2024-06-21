@@ -46,6 +46,9 @@ function buyCoin(coinName) {
     'qshop4.png': 30000,
     'qshop5.png': 40000,
     'qshop6.png': 100000,
+    'qshop7.png': 100000000,
+    'qshop8.png': 200000,
+    'qshop9.png': 50000,
   };
 
   let balance = parseInt(localStorage.getItem('cookies')) || 0;
@@ -95,5 +98,5 @@ if (selectedCoin === 'default') {
 }
 }
 
-
+onloadcoin()
 setInterval(onloadcoin, 1000);

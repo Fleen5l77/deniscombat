@@ -81,7 +81,7 @@ function buyCoin(coinName) {
     // Обновляем изображение монеты в игре
     updateGameCoinImage(); 
   } else {
-  
+
   }
 }
 

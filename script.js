@@ -173,6 +173,8 @@ function redirectToPage1() {
   function redirectToShop() {
     window.location.href = 'shop.html';
   }
-
+  function offlineautoclicker() {
+    window.location.href = 'miner/index.html';
+  }
 updateScore();
 displayAchievements();

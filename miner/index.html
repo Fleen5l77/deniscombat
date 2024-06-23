@@ -1,13 +1,9 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-     <!-- СКРИТЫ -->
-    <script src="jquery.js"></script>
-    <script src="task.js"></script>
-     <!-- СТИЛИ -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <!-- СТИЛИ -->
+<title>JOPA</title>
 <style>
     body {
         font-family: Arial, sans-serif;
@@ -38,15 +34,14 @@
     width: 300px;
     margin: 10px auto;
     padding: 10px;
-    border: 1px solid #972cce;
+    border: 1px solid #191919;
     background-color: #201717c4;
     border-radius: 23px;
     }
     .shop-item button {
         padding: 10px;
-    border: 1px solid #191919;
-    background-color: #972CCE;
-    color: white;
+        border: 1px solid #191919;
+    background-color: #dd7f04c4;
     border-radius: 23px;
 
     }
@@ -80,7 +75,7 @@
     align-items: center;
     height: 60px;
     position: fixed;
-    bottom: 45px;
+    bottom: 65px;
     width: 96%;
     border: 1px solid #972cce;
     background-color: #37124ab5;
@@ -102,16 +97,23 @@
     width: 300px;
     margin: 10px auto;
     padding: 10px;
-    border: 1px solid #191919;
+    border: 1px solid #972cce;
     background-color: #201717c4;
     border-radius: 23px;
     }
     .tasks-item button {
         padding: 10px;
         border: 1px solid #191919;
-    background-color: #dd7f04c4;
+        background-color: #972CCE;
+        color: white;
     border-radius: 23px;
 
+    }
+    .tasks-item input {
+        border: 1px solid #972cce;
+    background-color: #201717c4;
+    border-radius: 23px;
+    color: #fff;
     }
 </style>
 </head>
@@ -119,42 +121,43 @@
     <h1 style="color: #fff;">Denis Combat</h1>
     <div id="achievement-popup">Достижение!</div>
 <img id="cookie" src="coin.png">
-<div id="score">0</div>
-<div id="shop">
-    <h4 style="    margin: 1px;">ㅤПрокачкаㅤ</h4>
-    <div class="shop-item">
-        <span>Multitap (+1 dencoin за раз) (Уровень <span id="click-level">0</span>)</span>
-        <button id="upgrade-click">10 dencoin</button>
-    </div>
-    <div class="shop-item">
-        <span>Auto Clicker (+1 dencoin в секунду) (Уровень <span id="auto-clicker-level">0</span>)</span>
-        <button id="auto-clicker">100 dencoin</button>
-    </div>
-    <div class="shop-item">
-        <span>Магазин</span>
-        <button onclick="redirectToShop()">Открыть</button>
-    </div>
-    <div class="shop-item">
-        <span>Offline Auto Clicker</span>
-        <button onclick="offlineautoclicker()" >Открыть</button>
+<p style="font-size: 2em; margin: 20px;"><span id="balance">0</span></p>
+<div class="tasks">
+    <h4 style="  font-size: 1.3em; margin: 20px;  margin: 1px;">24/7 майнер</h4>
+    <div class="tasks-item">
+        <p id="uptxt"></p>
+        <button onclick="buyUpgrade()" id="upbtn">Применить</button>
     </div>
 
-
-    <div class="shop-item1" id="auto-clicker-upgrade-item" style="display:none;">
-        <span>Upgrade Auto Clicker Speed (Level <span id="auto-clicker-speed-level">0</span>)</span>
-        <button id="upgrade-auto-clicker">20 dencoin</button>
-    </div>
-</div>
-<div id="achievements">
-    <div id="achievement-list"></div>
-</div>
+<script src="script.js"></script>
+<div id="shopContainer"></div>
 <div class="bottomPanel">
     <button onclick="redirectToPage1()">ㅤДомㅤ</button>
     <button onclick="redirectToPage2()">Прокачка</button>
-    <button onclick="redirectToPage3()">Задания</button>
-    <button onclick="redirectToPage4()">Об игре</button>
+    <button onclick="redirectToPage4()">Задания</button>
+    <button onclick="redirectToPage5()">Об игре</button>
   </div>
 
-<script src="script.js"></script>
+
+  <script>
+    function redirectToPage1() {
+        window.location.href = '../index.html';
+      }
+      
+      function redirectToPage2() {
+        window.location.href = '../upgrade.html';
+      }
+    
+      function redirectToPage4() {
+        window.location.href = '../task.html';
+      }
+    
+      function redirectToPage5() {
+        window.location.href = '../about.html';
+      }
+    
+</script>
 </body>
 </html>
+
+

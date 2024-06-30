@@ -5,7 +5,7 @@ const promoCodes = {
     "FUN": 1000,
     "MIFIX": 2000,
     "COFFEE": 5000,
-    "UNIDEN24": 10000
+    "STOPSCAM": 20000
   };
 
   function applyPromoCode() {

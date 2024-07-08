@@ -6,7 +6,7 @@ const promoCodes = {
     "MIFIX": 2000,
     "COFFEE": 5000,
     "STOPSCAM": 20000,
-    "LOLLOL12": 290000
+    "STALINSSSR": 150000
   };
 
   function applyPromoCode() {

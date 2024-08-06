@@ -5,6 +5,9 @@ const promoCodes = {
     "FUN": 1000,
     "MIFIX": 2000,
     "COFFEE": 5000,
+    "S121212M": 20000,
+    "GOODBYE": 2000000,
+    "STOPSCAM": 20000,
     "STOPSCAM": 20000,
     "UDJNU843C": 1000000
   };

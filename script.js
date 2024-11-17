@@ -176,5 +176,8 @@ function redirectToPage1() {
   function offlineautoclicker() {
     window.location.href = 'miner/index.html';
   }
+  function send() {
+    window.location.href = 'send/index.html';
+  }
 updateScore();
 displayAchievements();

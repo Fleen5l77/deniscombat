@@ -1,14 +1,10 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-     <!-- СКРИТЫ -->
-    <script src="jquery.js"></script>
-    <script src="task.js"></script>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
-     <!-- СТИЛИ -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <!-- СТИЛИ -->
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<title>JOPA</title>
 <style>
     body {
         font-family: Arial, sans-serif;
@@ -39,15 +35,14 @@
     width: 300px;
     margin: 10px auto;
     padding: 10px;
-    border: 1px solid #972cce;
+    border: 1px solid #191919;
     background-color: #201717c4;
     border-radius: 23px;
     }
     .shop-item button {
         padding: 10px;
-    border: 1px solid #191919;
-    background-color: #972CCE;
-    color: white;
+        border: 1px solid #191919;
+    background-color: #dd7f04c4;
     border-radius: 23px;
 
     }
@@ -81,7 +76,7 @@
     align-items: center;
     height: 60px;
     position: fixed;
-    bottom: 45px;
+    bottom: 65px;
     width: 96%;
     border: 1px solid #972cce;
     background-color: #37124ab5;
@@ -103,15 +98,25 @@
     width: 300px;
     margin: 10px auto;
     padding: 10px;
-    border: 1px solid #191919;
+    border: 1px solid #972cce;
     background-color: #201717c4;
     border-radius: 23px;
     }
-    .tasks-item button {
+    button {
         padding: 10px;
         border: 1px solid #191919;
-    background-color: #dd7f04c4;
+        background-color: #972CCE;
+        color: white;
     border-radius: 23px;
+
+    }
+    input {
+        border: 1px solid #972cce;
+    background-color: #201717c4;
+    border-radius: 23px;
+    color: #fff;
+    padding: 10px;
+    margin: 3px
 
     }
 </style>
@@ -120,46 +125,62 @@
     <h1 style="color: #fff;">Denis Combat</h1>
     <div id="achievement-popup">Достижение!</div>
 <img id="cookie" src="coin.png">
-<div id="score">0</div>
-<div id="shop">
-    <h4 style="    margin: 1px;">ㅤПрокачкаㅤ</h4>
-    <div class="shop-item">
-        <span>Multitap (+1 dencoin за раз) (Уровень <span id="click-level">0</span>)</span>
-        <button id="upgrade-click">10 dencoin</button>
-    </div>
-    <div class="shop-item">
-        <span>Auto Clicker (+1 dencoin в секунду) (Уровень <span id="auto-clicker-level">0</span>)</span>
-        <button id="auto-clicker">100 dencoin</button>
-    </div>
-    <div class="shop-item">
-        <span>Магазин</span>
-        <button onclick="redirectToShop()">Открыть</button>
-    </div>
-    <div class="shop-item">
-        <span>Offline Auto Clicker</span>
-        <button onclick="offlineautoclicker()" >Открыть</button>
-    </div>
-    <div class="shop-item">
-        <span>Отправить Dencoin</span>
-        <button onclick="send()" >Открыть</button>
+<p style="    font-size: 2em; margin: 20px; display: none;"><span id="balance">0</span> Dencoin</p>
+
+<div class="container">
+    <h1>Поделиться коинами</h1>
+    <h3 id="userId"></h3>
+
+    <div id="share-coins">
+        <input type="text" id="recipientId" placeholder="Номер пользователя" required>
+        <input type="number" id="amount" placeholder="Количество коинов" required>
+        <input type="password" id="password" placeholder="Пароль" required>
+        <button id="sendCoins">Отправить</button>
     </div>
 
-
-    <div class="shop-item1" id="auto-clicker-upgrade-item" style="display:none;">
-        <span>Upgrade Auto Clicker Speed (Level <span id="auto-clicker-speed-level">0</span>)</span>
-        <button id="upgrade-auto-clicker">20 dencoin</button>
+    <div id="receive-coins">
+        <h2>Принять коины</h2>
+        <input type="text" id="code" placeholder="Код отправки" required>
+        <input type="password" id="receivePassword" placeholder="Пароль" required>
+        <button id="receiveCoins">Принять</button>
     </div>
+
+    <p id="message"></p>
+
+    <h2>Код отправки:</h2>
+    <p id="codeOutput"></p>
+    <button id="copyCode">Скопировать код</button>
+
 </div>
-<div id="achievements">
-    <div id="achievement-list"></div>
-</div>
+<div id="shopContainer"></div>
 <div class="bottomPanel">
     <button onclick="redirectToPage1()">ㅤДомㅤ</button>
     <button onclick="redirectToPage2()">Прокачка</button>
-    <button onclick="redirectToPage3()">Задания</button>
-    <button onclick="redirectToPage4()">Об игре</button>
+    <button onclick="redirectToPage4()">Задания</button>
+    <button onclick="redirectToPage5()">Об игре</button>
   </div>
 
+
+  <script>
+    function redirectToPage1() {
+        window.location.href = '../index.html';
+      }
+      
+      function redirectToPage2() {
+        window.location.href = '../upgrade.html';
+      }
+    
+      function redirectToPage4() {
+        window.location.href = '../task.html';
+      }
+    
+      function redirectToPage5() {
+        window.location.href = '../about.html';
+      }
+    
+</script>
 <script src="script.js"></script>
 </body>
 </html>
+
+

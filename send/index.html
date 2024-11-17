@@ -132,7 +132,7 @@
     <h3 id="userId"></h3>
 
     <div id="share-coins">
-        <input type="text" id="recipientId" placeholder="Номер пользователя" required>
+        <input type="text" id="recipientId" placeholder="ID пользователя" required>
         <input type="number" id="amount" placeholder="Количество коинов" required>
         <input type="password" id="password" placeholder="Пароль" required>
         <button id="sendCoins">Отправить</button>
@@ -150,7 +150,7 @@
     <h2>Код отправки:</h2>
     <p id="codeOutput"></p>
     <button id="copyCode">Скопировать код</button>
-
+    <button onclick="redirectToid">Мой ID</button>
 </div>
 <div id="shopContainer"></div>
 <div class="bottomPanel">
@@ -176,6 +176,10 @@
     
       function redirectToPage5() {
         window.location.href = '../about.html';
+      }
+
+      function redirectToid() {
+        window.location.href = 'about.html';
       }
     
 </script>

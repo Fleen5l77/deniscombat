@@ -50,6 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setBalance(getBalance());
     const userId = getUserId();
     console.log(`Ваш уникальный ID: ${userId}`); 
+    document.getElementById('userId').innerText = `Ваш ID: ${userId}`;
 });
 
 document.getElementById('sendCoins').addEventListener('click', () => {
@@ -127,16 +128,3 @@ document.getElementById('copyCode').addEventListener('click', () => {
 });
 
 
-function getUserId() {
-    return localStorage.getItem('userId'); // Получаем ID пользователя из localStorage
-}
-
-// Устанавливаем ID пользователя при загрузке
-document.addEventListener('DOMContentLoaded', () => {
-    const userId = getUserId();
-    if (userId) {
-        document.getElementById('userId').innerText = userId; // Устанавливаем текст элемента
-    } else {
-        document.getElementById('userId').innerText = 'ID'; // Если ID не найден
-    }
-});

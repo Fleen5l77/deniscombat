@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src = "https://code.jquery.com/jquery-2.1.4.min.js" ></script>
+<script src="bg.js"></script>
+<title></title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #f8f8f8;
+        color: #fff;
+        overflow: hidden;
+    }
+
+ #cookie {
+    justify-content: space-around;
+    align-items: center;
+    display: flex;
+    width: 294px;
+    height: 294px;
+    bottom: 180px;
+    background-size: cover;
+    position: fixed;
+    border: none;
+    cursor: pointer;
+    margin: 20px;
+    transition: transform 0.3s;
+    border-radius: 180px;
+    -webkit-tap-highlight-color: transparent;
+}
+    
+    .tapped {
+        transform: scale(0.96);
+}
+    #score {
+        font-size: 2em;
+        margin: 4px;
+    }
+    #shop {
+        margin-top: 20px;
+    }
+    .shop-item {
+        display: none;
+        justify-content: space-between;
+        width: 300px;
+        margin: 10px auto;
+        padding: 10px;
+        border: 1px solid #ccc;
+        background-color: #fff;
+    }
+    .shop-item button {
+        padding: 10px;
+    }
+    #achievements {
+        margin-top: 20px;
+        display: none
+    }
+    .achievement {
+        margin: 10px 0;
+    }
+    #achievement-popup {
+        position: fixed;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #ffeb3b;
+        padding: 10px;
+        border: 1px solid #ccc;
+        display: none;
+    }
+    .bottomPanel {
+        color: #fff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 60px;
+    position: fixed;
+ bottom: 45px;
+    width: 96%;
+    border: 1px solid #972cce;
+    background-color: #37124ab5;
+    border-radius: 22px;
+}
+.bottomPanel button {
+    padding: 10px;
+    border: 1px solid #191919;
+    background-color: #972CCE;
+    color: white;
+    border-radius: 23px;
+}
+
+    .toppanel {
+        color: #fff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 60px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 99.5%;
+    border: 1px solid #972cce;
+    background-color: #37124ab5;
+    border-radius: 0% 0% 22px 22px;
+    }
+    .scorecont {
+        position: relative;
+    width: 100%;
+    /* height: 100vh; */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    top: -385px;
+    }
+    
+.cookiecontainer {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 180px;
+}
+#minicookie {
+    border-radius: 100%;
+    width: 41px;
+    height: 41px;
+    margin: 4px;
+}
+
+</style>
+</head>
+<body style="background-image: url('bg.png');">
+<div class="toppanel">
+    <img id="minicookie">
+    <div id="score">0</div>
+</div>
+<div id="achievement-popup">Достижение!</div>
+
+<div class="cookiecontainer"><img id="cookie"> </div>
+<div class="scorecont">
+
+</div>
+<div id="shop">
+    <div class="shop-item">
+        <span>Upgrade Click (+1 per click) (Level <span id="click-level">0</span>)</span>
+        <button id="upgrade-click">Cost: 10 cookies</button>
+    </div>
+    <div class="shop-item">
+        <span>Auto Clicker (+1 per second) (Level <span id="auto-clicker-level">0</span>)</span>
+        <button id="auto-clicker">Cost: 100 cookies</button>
+    </div>
+    <div class="shop-item" id="auto-clicker-upgrade-item" style="display:none;">
+        <span>Upgrade Auto Clicker Speed (Level <span id="auto-clicker-speed-level">0</span>)</span>
+        <button id="upgrade-auto-clicker">Cost: 20 cookies</button>
+    </div>
+</div>
+<div id="achievements">
+    <h2>Достижения</h2>
+    <div id="achievement-list"></div>
+</div>
+
+<div class="bottomPanel">
+    <button onclick="redirectToPage1()">ㅤДомㅤ</button>
+    <button onclick="redirectToPage2()">Прокачка</button>
+    <button onclick="redirectToPage3()">Задания</button>
+    <button onclick="redirectToPage4()">Об игре</button>
+  </div>
+
+<script src="script.js"></script>
+<script src="coinAPI.js"></script>
+</body>
+</html>

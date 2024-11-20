@@ -1,178 +1,82 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src = "https://code.jquery.com/jquery-2.1.4.min.js" ></script>
-<script src="bg.js"></script>
-<title></title>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        text-align: center;
-        background-color: #f8f8f8;
-        color: #fff;
-        overflow: hidden;
-    }
-
- #cookie {
-    justify-content: space-around;
-    align-items: center;
-    display: flex;
-    width: 294px;
-    height: 294px;
-    bottom: 180px;
-    background-size: cover;
-    position: fixed;
-    border: none;
-    cursor: pointer;
-    margin: 20px;
-    transition: transform 0.3s;
-    border-radius: 180px;
-    -webkit-tap-highlight-color: transparent;
-}
-    
-    .tapped {
-        transform: scale(0.96);
-}
-    #score {
-        font-size: 2em;
-        margin: 4px;
-    }
-    #shop {
-        margin-top: 20px;
-    }
-    .shop-item {
-        display: none;
-        justify-content: space-between;
-        width: 300px;
-        margin: 10px auto;
-        padding: 10px;
-        border: 1px solid #ccc;
-        background-color: #fff;
-    }
-    .shop-item button {
-        padding: 10px;
-    }
-    #achievements {
-        margin-top: 20px;
-        display: none
-    }
-    .achievement {
-        margin: 10px 0;
-    }
-    #achievement-popup {
-        position: fixed;
-        top: 10px;
-        left: 50%;
-        transform: translateX(-50%);
-        background-color: #ffeb3b;
-        padding: 10px;
-        border: 1px solid #ccc;
-        display: none;
-    }
-    .bottomPanel {
-        color: #fff;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 60px;
-    position: fixed;
- bottom: 45px;
-    width: 96%;
-    border: 1px solid #972cce;
-    background-color: #37124ab5;
-    border-radius: 22px;
-}
-.bottomPanel button {
-    padding: 10px;
-    border: 1px solid #191919;
-    background-color: #972CCE;
-    color: white;
-    border-radius: 23px;
-}
-
-    .toppanel {
-        color: #fff;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 60px;
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    width: 99.5%;
-    border: 1px solid #972cce;
-    background-color: #37124ab5;
-    border-radius: 0% 0% 22px 22px;
-    }
-    .scorecont {
-        position: relative;
-    width: 100%;
-    /* height: 100vh; */
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    top: -385px;
-    }
-    
-.cookiecontainer {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  padding-bottom: 180px;
-}
-#minicookie {
-    border-radius: 100%;
-    width: 41px;
-    height: 41px;
-    margin: 4px;
-}
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Реферальная система</title>
+    <meta http-equiv="refresh" content="5;URL=https://fleen5l77.github.io/deniscombat/base.html" />
 </head>
-<body style="background-image: url('bg.png');">
-<div class="toppanel">
-    <img id="minicookie">
-    <div id="score">0</div>
-</div>
-<div id="achievement-popup">Достижение!</div>
+<body>
+    <div id="loading" style="display: none;">Загрузка...</div>
+    
+    <script>
+        const yourUserId = localStorage.getItem('userId')
+        // Функция для получения ID из URL
+        function getReferrerId() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('ref');
+        }
 
-<div class="cookiecontainer"><img id="cookie"> </div>
-<div class="scorecont">
+        // Функция для отправки реферала
+        async function sendReferral(referrerId) {
+            const response = await fetch('http://138.124.3.247:5000/referral', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ referrer_id: referrerId })
+            });
 
-</div>
-<div id="shop">
-    <div class="shop-item">
-        <span>Upgrade Click (+1 per click) (Level <span id="click-level">0</span>)</span>
-        <button id="upgrade-click">Cost: 10 cookies</button>
-    </div>
-    <div class="shop-item">
-        <span>Auto Clicker (+1 per second) (Level <span id="auto-clicker-level">0</span>)</span>
-        <button id="auto-clicker">Cost: 100 cookies</button>
-    </div>
-    <div class="shop-item" id="auto-clicker-upgrade-item" style="display:none;">
-        <span>Upgrade Auto Clicker Speed (Level <span id="auto-clicker-speed-level">0</span>)</span>
-        <button id="upgrade-auto-clicker">Cost: 20 cookies</button>
-    </div>
-</div>
-<div id="achievements">
-    <h2>Достижения</h2>
-    <div id="achievement-list"></div>
-</div>
+            return response.ok;
+        }
 
-<div class="bottomPanel">
-    <button onclick="redirectToPage1()">ㅤДомㅤ</button>
-    <button onclick="redirectToPage2()">Прокачка</button>
-    <button onclick="redirectToPage3()">Задания</button>
-    <button onclick="redirectToPage4()">Об игре</button>
-  </div>
+        // Функция для проверки рефералов
+        async function checkReferrals(userId) {
+            const response = await fetch('http://138.124.3.247:5000/check_referral', {
+          method: 'POST',
+           headers: {
+                'Content-Type': 'application/json'
+           },
+           body: JSON.stringify({ user_id: yourUserId }) // Замените yourUserId на реальное значение
+            });
 
-<script src="script.js"></script>
-<script src="coinAPI.js"></script>
+
+            if (response.ok) {
+                const data = await response.json();
+                return data.referral_count;
+            }
+            return 0;
+        }
+
+        async function init() {
+            const loadingDiv = document.getElementById('loading');
+            loadingDiv.style.display = 'block';
+
+            // Получаем ID из localStorage или создаем новый
+            let userId = localStorage.getItem('userId');
+            if (!userId) {
+                userId = 'Dencoin-' + Math.random().toString(36).substr(2, 9);
+                localStorage.setItem('userId', userId);
+            }
+
+            // Проверяем, есть ли реферальный ID в URL
+            const referrerId = getReferrerId();
+            if (referrerId) {
+                await sendReferral(referrerId);
+            }
+
+            // Проверяем количество рефералов и обновляем баланс
+            const referralCount = await checkReferrals(userId);
+            if (referralCount > 0) {
+                const reward = referralCount * 15000;
+                let balance = localStorage.getItem('cookies') || 0;
+                balance = parseInt(balance) + reward;
+                localStorage.setItem('cookies', balance);
+            }
+            loadingDiv.style.display = 'none';
+        }
+
+        window.onload = init;
+    </script>
 </body>
 </html>

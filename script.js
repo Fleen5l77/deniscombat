@@ -155,7 +155,7 @@ gameImage.addEventListener('touchend', function() {
 });
 
 function redirectToPage1() {
-    window.location.href = 'index.html';
+    window.location.href = 'base.html';
   }
   
   function redirectToPage2() {

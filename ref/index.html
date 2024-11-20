@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Реферальная система</title>
+</head>
+<body>
+    <h1>Реферальная система</h1>
+    
+    <div id="loading" style="display: none;">Загрузка...</div>
+    
+    <script>
+        // Функция для получения ID из URL
+        function getReferrerId() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('ref');
+        }
+
+        // Функция для отправки реферала
+        async function sendReferral(referrerId) {
+            const response = await fetch('http://localhost:5000/referral', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ referrer_id: referrerId })
+            });
+
+            return response.ok;
+        }
+
+        // Функция для проверки рефералов
+        async function checkReferrals(userId) {
+            const response = await fetch('http:/localhost:5000/check_referral', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ user_id: userId })
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                return data.referral_count;
+            }
+            return 0;
+        }
+
+        async function init() {
+            const loadingDiv = document.getElementById('loading');
+            loadingDiv.style.display = 'block';
+
+            // Получаем ID из localStorage или создаем новый
+            let userId = localStorage.getItem('user_id');
+            if (!userId) {
+                userId = 'Dencoin-' + Math.random().toString(36).substring(2, 10);
+                localStorage.setItem('user_id', userId);
+            }
+
+            // Проверяем, есть ли реферальный ID в URL
+            const referrerId = getReferrerId();
+            if (referrerId) {
+                await sendReferral(referrerId);
+            }
+
+            // Проверяем количество рефералов и обновляем баланс
+            const referralCount = await checkReferrals(userId);
+            if (referralCount > 0) {
+                const reward = referralCount * 8000;
+                let balance = localStorage.getItem('balance') || 0;
+                balance = parseInt(balance) + reward;
+                localStorage.setItem('balance', balance);
+                alert(`Вы получили ${reward} валюты! Ваш баланс: ${balance}`);
+            }
+            loadingDiv.style.display = 'none';
+        }
+
+        window.onload = init;
+    </script>
+</body>
+</html>

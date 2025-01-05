@@ -8,7 +8,7 @@ const promoCodes = {
     "S67667878": 900000000,
     "GOODBYE": 2000000,
     "D34234234": 20021300,
-    "CELE2025": 20000000
+    "HAPPY2025": 200000
   };
 
   function applyPromoCode() {
